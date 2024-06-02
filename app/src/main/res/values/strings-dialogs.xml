@@ -22,19 +22,18 @@
 <![CDATA[<html>
 <body>
     <p>
-        This is a simple application that takes the system logs via dmesg and logcat,
-        and saves them, compresses them, and lets you upload/email them.
+        这是一个简单的用于获取logcat/dmesg信息，并保存，压缩，发送/分享log的应用。
     </p>
     <p>
-        Root access is <b>required</b> for access to all logs, but logcat and radio log access can
-        be <a href="https://github.com/Tortel/SysLog/blob/master/Readme.md#enabling-log-access-via-adb-no-root-required">manually granted</a>.
+        对于此应用，Root权限 <b>必须</b> 授予, 但是获取logcat和radio日志的权限可以被
+        <a href="https://github.com/Tortel/SysLog/blob/master/Readme.md#enabling-log-access-via-adb-no-root-required">手动赋予</a>。
     </p>
     <p>
-        This app is open source, and licensed under GPLv2. You can view the source on
-        <a href="http://github.com/Tortel/Syslog">GitHub</a>
+        此应用在GPLv2协议下完全开源。汉化fork代码地址：
+        <a href="http://github.com/uwu-gl/Syslog-CN">GitHub</a>
     </p>
     <p>
-        <a href="https://github.com/Tortel/SysLog/blob/master/Privacy.md">Privacy Policy</a>
+        <a href="https://github.com/Tortel/SysLog/blob/master/Privacy.md">隐私政策</a>
     </p>
 </body>
 </html>]]>
@@ -43,9 +42,9 @@
     <string name="dialog_livelog_content">
 <![CDATA[<html>
     <body>
-    The live logcat view will show you the current logcat output from your device.
+    Live logcat会实时打印从您设备获取到的logcat。
     <br /><br />
-    You can stop and restart the output with the buttons in the action bar.
+    你可以在上方按钮中手动显示和暂停它们。
     </body>
 </html>
 ]]>
@@ -55,33 +54,29 @@
     <string name="dialog_faq_content">
 <![CDATA[<html>
 <body>
-    <h4>Why does SysLog request root access?</h4>
+    <h4>为什么Syslog要求Root权限?</h4>
     <p>
-    Starting with Android 4.1, the system logs were restricted to system applications only.<br />
-    You can <a href="https://github.com/Tortel/SysLog/blob/master/Readme.md#enabling-log-access-via-adb-no-root-required">manually enable access</a> to some logs using adb though.
+    从Android 4.1起, 系统log只对系统应用可读。<br />
+    您可以<a href="https://github.com/Tortel/SysLog/blob/master/Readme.md#enabling-log-access-via-adb-no-root-required">手动使用adb开启权限</a> 来抓取log。
     </p>
-    <h4>Where are the files saved?</h4>
+    <h4>文件都被保存在哪里?</h4>
     <p>
-        The files are saved in the application\'s cache, so no other apps can access them. You can attach them in other applications through the system document picker -
-        select the SysLog application and you can pick a compressed log file.
+        文件全部被保存在此应用独有缓存文件夹中, 其他app无法读取。若要在其他应用中查看，请使用系统文件分享到其他应用。
     </p>
-    <h4>Why is the last kernel log grayed out?</h4>
+    <h4>为什么上一次内核log按钮是灰色的，无法点击?</h4>
     <p>
-    Your device\'s kernel needs to support the last log feature, and SysLog checks for the \'/proc/last_kmsg\' file at start.
-    Even if your kernel supports the feature, it may only save the log during a kernel crash. Check for more details with
-    the maintainer of the kernel/ROM you use.
+    您的设备内核必须支持这一功能, 此应用会先检查 \'/proc/last_kmsg\' 文件。
+    即使内核支持，很多内核也只在崩溃时才输出这些log。请询问您的rom维护者/内核维护者来获取更多信息。
     </p>
-    <h4>What is Grep?</h4>
+    <h4>Grep是什么?</h4>
     <p>
-    Grep is a Unix utility to match lines based on regular expressions. If you are not familiar with it, I would not
-    recommend using it. For more details, check the
-    <a href="http://www.gnu.org/software/grep/manual/grep.html">help page</a>.
+    Grep 是一个 Unix 实用程序，用于根据正则表达式匹配行。如果您不熟悉，不建议使用。
+    有关更多详细信息，请查看<a href="http://www.gnu.org/software/grep/manual/grep.html">GNU帮助界面</a>。
     </p>
-    <h4>What information gets scrubbed?</h4>
+    <h4>哪些信息被过滤了?</h4>
     <p>
-        The scrubber uses a set of regular expressions to scrub out email addresses, phone numbers, URLs, IP addresses,
-        serial number, and some basic phone and user information. For more details, you can view
-        <a href="https://github.com/Tortel/SysLog/blob/master/app/src/main/java/com/tortel/syslog/utils/ScrubberUtils.java">the source</a>.
+        过滤器会删除有关您的所有个人信息。
+        <a href="https://github.com/Tortel/SysLog/blob/master/app/src/main/java/com/tortel/syslog/utils/ScrubberUtils.java">查看详细信息</a>。
     </p>
 </body>
 </html>]]>
